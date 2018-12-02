@@ -42,7 +42,7 @@ class TransactionDetailDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getDetailOfTransactionId(TransactionDetail $detail) {

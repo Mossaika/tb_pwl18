@@ -27,6 +27,17 @@
         box-sizing: border-box;
         font-size: 14px;
     }
+    .form select {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
     .form button {
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
@@ -97,17 +108,32 @@
 </style>
 <div class="login-page">
     <div class="form">
-        <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
+        <form id="registerForm" class="register-form" method="POST">
+            <input type="text" name="txtUsername" placeholder="Username"/>
+            <input type="password" name="txtPassword" placeholder="Password"/>
+            <input type="text" name="txtEmail" placeholder="Email"/>
+            <input type="text" name="txtName" placeholder="Full Name"/>
+            <select name="role" align="center">
+                <option>Register as</option>
+                <?php
+                foreach ($roles as $r) {
+                    if ($r->getId() != 1) {
+                        ?>
+                        <option value="<?php echo $r->getId(); ?>">
+                            <?php echo $r->getName(); ?>
+                        </option>
+                        <?php
+                    }
+                }
+                ?>
+            </select>
+            <button type="submit" form="registerForm" name="btnRegister">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>
+        <form id="loginForm" class="login-form" method="POST">
+            <input type="text" name="txtUsername" placeholder="username"/>
+            <input type="password" name="txtPassword" placeholder="password"/>
+            <button type="submit" form="loginForm" name="btnLogin">login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
     </div>

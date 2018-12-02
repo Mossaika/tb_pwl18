@@ -16,15 +16,15 @@ class DriverDaoImpl {
             $query = "INSERT INTO driver (approved) VALUES(0)";
             $stmt = $link->prepare($query);
             $stmt->execute();
+            $lastId = $link->lastInsertId();
             $link->commit();
-            $msg = 'sukses';
         } catch (PDOException $er) {
             $link->rollBack();
             echo $er->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $msg;
+        return $lastId;
     }
 
     public function updateDriver(Driver $driver) {
@@ -57,7 +57,7 @@ class DriverDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getOneDriver(Driver $driver) {

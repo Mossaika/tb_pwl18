@@ -61,7 +61,7 @@ class ItemDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getOneItem(Item $item) {

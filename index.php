@@ -1,7 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
+        <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="js/cufon-yui.js" type="text/javascript"></script>
+        <script src="js/cufon-replace.js" type="text/javascript"></script> 
+        <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
+        <script src="js/FF-cash.js" type="text/javascript"></script>
         <?php
+        include_once './controller/LoginController.php';
+        include_once './dao/DeliveryDaoImpl.php';
+        include_once './dao/DriverDaoImpl.php';
+        include_once './dao/ItemDaoImpl.php';
+        include_once './dao/RoleDaoImpl.php';
+        include_once './dao/SellerDaoImpl.php';
+        include_once './dao/TransactionDaoImpl.php';
+        include_once './dao/TransactionDetailDaoImpl.php';
+        include_once './dao/UserDaoImpl.php';
+        include_once './entity/Deliveries.php';
+        include_once './entity/Driver.php';
+        include_once './entity/Item.php';
+        include_once './entity/Role.php';
+        include_once './entity/Seller.php';
+        include_once './entity/TransactionDetail.php';
+        include_once './entity/Transactions.php';
+        include_once './entity/Users.php';
         include_once './util/PDOUtil.php';
 
         session_start();
@@ -15,15 +41,6 @@
                 $bodyId = 'page2';
                 ?>
                 <title>Menu</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script>  
                 <script src="js/jquery.equalheights.js" type="text/javascript"></script>    
                 <script src="js/jquery.bxSlider.js" type="text/javascript"></script> 
                 <script type="text/javascript">
@@ -42,16 +59,7 @@
                 $bodyId = 'page3';
                 ?>
                 <title>Catalogue</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
                 <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen">
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script>  
                 <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script> 
                 <script src="js/hover-image.js" type="text/javascript"></script>
                 <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>  
@@ -73,45 +81,18 @@
                 $bodyId = 'page4';
                 ?>
                 <title>Delivery</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script>  
                 <?php
                 break;
             case 'howto':
                 $bodyId = 'page5';
                 ?>
                 <title>How To</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">  
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script> 
                 <?php
                 break;
             case 'contact':
                 $bodyId = 'page6';
                 ?>
                 <title>Contact</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-                <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script>  
                 <?php
                 break;
             default:
@@ -121,11 +102,6 @@
                 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
                 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
                 <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-                <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-                <script src="js/cufon-yui.js" type="text/javascript"></script>
-                <script src="js/cufon-replace.js" type="text/javascript"></script> 
-                <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
-                <script src="js/FF-cash.js" type="text/javascript"></script>
                 <script src="js/tms-0.3.js" type="text/javascript"></script>
                 <script src="js/tms_presets.js" type="text/javascript"></script>
                 <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
@@ -134,7 +110,6 @@
                 break;
         }
         ?>
-        <meta charset="utf-8">
     </head>
     <body id="<?php echo $bodyId; ?>">
         <!--==============================header=================================-->
@@ -216,7 +191,8 @@
             <?php
             switch ($navigation) {
                 case 'login':
-                    include_once 'login.php';
+                    $loginController = new LoginController();
+                    $loginController->login();
                     break;
                 case 'logout':
                     session_unset();

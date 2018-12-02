@@ -61,7 +61,7 @@ class TransactionDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getOneTransaction(Transactions $transaction) {

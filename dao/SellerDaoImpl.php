@@ -18,15 +18,15 @@ class SellerDaoImpl {
             $stmt->bindValue(1, $seller->getName(), PDO::PARAM_STR);
             $stmt->bindValue(2, $seller->getAddress(), PDO::PARAM_STR);
             $stmt->execute();
+            $lastId = $link->lastInsertId();
             $link->commit();
-            $msg = 'sukses';
         } catch (PDOException $er) {
             $link->rollBack();
             echo $er->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $msg;
+        return $lastId;
     }
 
     public function updateSeller(Seller $seller) {
@@ -60,7 +60,7 @@ class SellerDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getOneSeller(Seller $seller) {

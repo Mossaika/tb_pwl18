@@ -41,7 +41,7 @@ class DeliveryDaoImpl {
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return;
+        return $stmt;
     }
 
     public function getDeliveryByDriverId(Deliveries $delivery) {
