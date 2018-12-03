@@ -5,12 +5,15 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-        <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="css/datatables.css">
+        <script type="text/javascript" src="js/datatables.js"></script>
         <script src="js/cufon-yui.js" type="text/javascript"></script>
         <script src="js/cufon-replace.js" type="text/javascript"></script> 
         <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
         <script src="js/FF-cash.js" type="text/javascript"></script>
         <?php
+        include_once './controller/ApproveController.php';
         include_once './controller/LoginController.php';
         include_once './dao/DeliveryDaoImpl.php';
         include_once './dao/DriverDaoImpl.php';
@@ -33,10 +36,25 @@
         session_start();
         if (!isset($_SESSION['approved_user'])) {
             $_SESSION['approved_user'] = FALSE;
+            $_SESSION['role'] = 0;
         }
 
         $navigation = filter_input(INPUT_GET, 'n');
         switch ($navigation) {
+            case 'approve':
+                $bodyId = '';
+                break;
+            case 'manage_user':
+                $bodyId = '';
+                break;
+            case 'login':
+                $bodyId = '';
+                break;
+            case 'logout':
+                session_unset();
+                session_destroy();
+                header('location:index.php');
+                break;
             case 'menu':
                 $bodyId = 'page2';
                 ?>
@@ -120,20 +138,31 @@
                         <h1><a href="index.php">Catering<span>.com</span></a></h1>
                         <nav>
                             <ul class="menu">
-                                <li><a class="active" href="index.php?n=home">Home</a></li>
-                                <li><a href="index.php?n=menu">Menu</a></li>
-                                <li><a href="index.php?n=catalogue">Catalogue</a></li>
-                                <li><a href="index.php?n=delivery">Delivery</a></li>
-                                <li><a href="index.php?n=howto">How To</a></li>
-                                <li><a href="index.php?n=contact">Contact</a></li>
                                 <?php
-                                if ($_SESSION['approved_user']) {
+                                if ($_SESSION['role'] == '1') {
                                     ?>
-                                    <li><a href="index.php?n=logout">Logout</a></li>
+                                    <li><a href="?n=approve">Approve</a></li>
+                                    <li><a href="?n=manage_user">Manage User</a></li>
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a href="index.php?n=login">Login</a></li>
+                                    <li><a href="?n=home">Home</a></li>
+                                    <li><a href="?n=menu">Menu</a></li>
+                                    <li><a href="?n=catalogue">Catalogue</a></li>
+                                    <li><a href="?n=delivery">Delivery</a></li>
+                                    <li><a href="?n=howto">How To</a></li>
+                                    <li><a href="?n=contact">Contact</a></li>
+                                    <?php
+                                }
+                                ?>
+                                <?php
+                                if ($_SESSION['approved_user']) {
+                                    ?>
+                                    <li><a href="?n=logout">Logout</a></li>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li><a href="?n=login">Login</a></li>
                                     <?php
                                 }
                                 ?>
@@ -148,6 +177,10 @@
                         <h2>Impressive Selection <span>for any Occasion</span></h2>
                         <?php
                         switch ($navigation) {
+                            case 'approve':
+                                break;
+                            case 'manage_user':
+                                break;
                             case 'login':
                                 break;
                             case 'menu':
@@ -190,14 +223,15 @@
         <section id="content">
             <?php
             switch ($navigation) {
+                case 'approve':
+                    $approveController = new ApproveController();
+                    $approveController->approve();
+                    break;
+                case 'manage_user':
+                    break;
                 case 'login':
                     $loginController = new LoginController();
                     $loginController->login();
-                    break;
-                case 'logout':
-                    session_unset();
-                    session_destroy();
-                    header('location:index.php');
                     break;
                 case 'menu':
                     include_once 'menu.php';
@@ -231,8 +265,17 @@
             </div>
         </footer>
         <script type="text/javascript"> Cufon.now();</script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#tableId').DataTable();
+            });
+        </script>
         <?php
         switch ($navigation) {
+            case 'approve':
+                break;
+            case 'manage_user':
+                break;
             case 'login':
                 break;
             case 'menu':

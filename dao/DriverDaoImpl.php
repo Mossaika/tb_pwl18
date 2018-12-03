@@ -48,9 +48,9 @@ class DriverDaoImpl {
     function showAllDriver() {
         $link = PDOUtil::createPDOConnection();
         try {
-            $query = "SELECT * FROM driver";
+            $query = "SELECT u.id, u.username, u.email, u.name, d.id as did, d.approved FROM users u JOIN driver d ON u.driver_id = d.id";
             $stmt = $link->prepare($query);
-            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'driver');
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Driver');
             $stmt->execute();
         } catch (PDOException $ex) {
             echo $ex->getMessage();

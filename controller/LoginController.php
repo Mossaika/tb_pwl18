@@ -71,7 +71,7 @@ class LoginController {
                 $_SESSION['id'] = $login->id;
                 $_SESSION['name'] = $login->name;
                 $_SESSION['username'] = $login->username;
-                $_SESSION['role'] = $login->role_id;
+                $_SESSION['role'] = $login->rid;
                 $_SESSION['banned'] = $login->banned;
                 $_SESSION['approved_user'] = TRUE;
                 header('location:index.php');

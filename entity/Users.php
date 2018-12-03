@@ -89,4 +89,25 @@ class Users {
         $this->seller_id = $seller_id;
     }
 
+    public function __set($name, $value) {
+        if (!isset($this->roles_id)) {
+            $this->roles_id = new Role();
+            $this->driver_id = new Driver();
+        }
+        if (isset($value)) {
+            switch ($name) {
+                case 'rid':
+                    $this->roles_id->setId($value);
+                case 'rname':
+                    $this->roles_id->setName($value);
+                case 'did':
+                    $this->driver_id->setId($value);
+                case 'dapproved':
+                    $this->driver_id->setApproved($value);
+                default:
+                    break;
+            }
+        }
+    }
+
 }

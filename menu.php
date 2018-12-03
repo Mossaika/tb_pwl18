@@ -19,153 +19,63 @@
                 <div id="slider">
                     <div>
                         <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img2.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <figure><a href="#"><img src="images/nasigorengspecial.jpg" alt=""></a></figure>
+                            <h5>Nasi Goreng Special</h5>
+                            (Rp.24000)
                         </div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img5.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Sapo Tahu</h5>
+                            (Rp.18000)
                         </div>
                         <figure><a href="#"><img src="images/page2-img8.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
+                        <h5>Ayam Goreng Taliwang</h5>
+                        (Rp.20000)
                     </div>
                     <div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img3.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Sate Kambing</h5>
+                            (Rp.45000)
                         </div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img6.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Chicken Cordon Blue</h5>
+                            (Rp.35000)
                         </div>
                         <figure><a href="#"><img src="images/page2-img9.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
+                        <h5>Chicken Snitzel</h5>
+                        (Rp.29000)
                     </div>
                     <div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img4.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Fish And Chips</h5>
+                            (Rp.32000)
                         </div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img7.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Burger Spicy</h5>
+                            (Rp.35000)
                         </div>
                         <figure><a href="#"><img src="images/page2-img10.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
+                        <h5>Pizza American Suprime</h5>
+                        (Rp.50000)
                     </div>
                     <div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img2.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Beef Lada Hitam</h5>
+                            (Rp.50000)
                         </div>
                         <div class="p2">
                             <figure><a href="#"><img src="images/page2-img5.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
+                            <h5>Es Campur Special</h5>
+                            (Rp.20000)
                         </div>
                         <figure><a href="#"><img src="images/page2-img8.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img3.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img6.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img9.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img4.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img7.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img10.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img2.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img5.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img8.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img3.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img6.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img9.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img4.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img7.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img10.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
-                    </div>
-                    <div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img4.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <div class="p2">
-                            <figure><a href="#"><img src="images/page2-img7.jpg" alt=""></a></figure>
-                            <h5>Nam liber tempor</h5>
-                            (price $12.95)
-                        </div>
-                        <figure><a href="#"><img src="images/page2-img10.jpg" alt=""></a></figure>
-                        <h5>Nam liber tempor</h5>
-                        (price $12.95)
+                        <h5>Dorayaki</h5>
+                        (Rp.17000)
                     </div>
                 </div>
             </div>
@@ -173,34 +83,19 @@
         <article class="col-2">
             <h3>Price List</h3>
             <ul class="price-list p2">
-                <li><span>$12.95</span><a href="#">Nam liber tempor cum soluta nobis eleifend</a></li>
-                <li><span>$9.50</span><a href="#">Option congue nihil imperdiet doming id quod mazim</a></li>
-                <li><span>$13.90</span><a href="#">Placerat facer possim assum</a></li>
-                <li><span>$20.15</span><a href="#">Lorem ipsum dolor sit amet, consectetuer</a></li>
-                <li><span>$15.05</span><a href="#">Adipiscing elit, sed diam nonummy nibh euismod tincidunt</a></li>
-                <li><span>$12.95</span><a href="#">Laoreet dolore magna aliquam erat volutpat</a></li>
-                <li><span>$14.75</span><a href="#">Ut wisi enim ad minim veniam, quis nostrud exerci</a></li>
-                <li><span>$08.85</span><a href="#">Tation ullamcorper suscipit lobortis nisl</a></li>
-                <li><span>$12.95</span><a href="#">Aliquip ex ea commodo consequat</a></li>
-                <li><span>$21.00</span><a href="#">Ut wisi enim ad minim veniam, quis nostrud exerci</a></li>
-                <li><span>$12.95</span><a href="#">Tation ullamcorper suscipit lobortis nisl ut aliquip ex ea</a></li>
-                <li><span>$13.35</span><a href="#">Duis autem vel eum iriure dolor in hendrerit</a></li>
-                <li><span>$12.95</span><a href="#">Vulputate velit esse molestie consequat vel illum dolore</a></li>
-                <li><span>$12.95</span><a href="#">Feugiat nulla facilisis at vero eros et accumsan</a></li>
-                <li><span>$12.95</span><a href="#">Iusto odio dignissim qui blandit praesent luptatum</a></li>
-                <li><span>$18.75</span><a href="#">Azril delenit augue duis dolore te feugait nulla facilisi</a></li>
-                <li><span>$12.95</span><a href="#">Nam liber tempor cum soluta nobis eleifend option congue</a></li>
-                <li><span>$17.85</span><a href="#">Hihil imperdiet doming id quod mazim placerat</a></li>
-                <li><span>$12.95</span><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing</a></li>
-                <li><span>$22.35</span><a href="#">Sed diam nonummy nibh euismod tincidunt</a></li>
-                <li><span>$12.95</span><a href="#">Laoreet dolore magna aliquam erat volutpat</a></li>
-                <li><span>$09.25</span><a href="#">Ut wisi enim ad minim veniam, quis nostrud exerci</a></li>
-                <li><span>$12.95</span><a href="#">Tation ullamcorper suscipit lobortis nisl</a></li>
-                <li><span>$17.15</span><a href="#">Nam liber tempor cum soluta nobis eleifend</a></li>
-                <li><span>$12.95</span><a href="#">Option congue nihil imperdiet doming id quod mazim</a></li>
-                <li><span>$19.05</span><a href="#">Placerat facer possim assum</a></li>
+                <li><span>Rp 24.000</span><a href="#">Nasi Goreng Special</a></li>
+                <li><span>Rp 18.000</span><a href="#">Sapo Tahu</a></li>
+                <li><span>Rp 20.000</span><a href="#">Ayam Goreng Taliwang</a></li>
+                <li><span>Rp 45.000</span><a href="#">Sate Kambing</a></li>
+                <li><span>Rp 35.000</span><a href="#">Chicken Cordon Blue</a></li>
+                <li><span>Rp 29.000</span><a href="#">Chicken Snitzle</a></li>
+                <li><span>Rp 32.000</span><a href="#">Fish And Chips</a></li>
+                <li><span>Rp 35.000</span><a href="#">Burger Spicy</a></li>
+                <li><span>Rp 50.000</span><a href="#">Pizza American Suprime</a></li>
+                <li><span>Rp 50.000</span><a href="#">Beef Lada Hitam</a></li>
+                <li><span>Rp 20.000</span><a href="#">Es Campur Special</a></li>
+                <li><span>Rp 17.000</span><a href="#">Dorayaki </a></li>
             </ul>
-            <a class="button-2" href="#">Read More</a>
         </article>
     </div>
 </div>

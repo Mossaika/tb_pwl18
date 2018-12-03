@@ -79,6 +79,21 @@ class UserDaoImpl {
         return $stmt;
     }
 
+    function showAllDriver() {
+        $link = PDOUtil::createPDOConnection();
+        try {
+            $query = "SELECT u.id, u.username, u.email, u.name, d.id as did, d.approved as dapproved FROM users u JOIN driver d ON u.driver_id = d.id";
+            $stmt = $link->prepare($query);
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
+            $stmt->execute();
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+        PDOUtil::closePDOConnection($link);
+        return $stmt;
+    }
+
     public function getOneUser(Users $user) {
         $link = PDOUtil::createPDOConnection();
         try {
@@ -98,7 +113,7 @@ class UserDaoImpl {
     public function login(Users $user) {
         $link = PDOUtil::createPDOConnection();
 // 3. insert to DB
-        $query = "SELECT id, name, username, roles_id, banned FROM users WHERE username=? AND password=?";
+        $query = "SELECT u.*, r.id as rid, r.name as rname FROM users u JOIN role r ON u.id = r.id WHERE username=? AND password=?";
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $user->getUsername(), PDO::PARAM_STR);
         $stmt->bindValue(2, $user->getPassword(), PDO::PARAM_STR);
