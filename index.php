@@ -128,6 +128,14 @@
                 break;
         }
         ?>
+        <script type="text/javascript">
+                    function approveDriver(id) {
+                        window.location = '?n=approve&c=dupdate&id=' + id;
+                    }
+                    function approveSeller(id) {
+                        window.location = '?n=approve&c=supdate&id=' + id;
+                    }
+        </script>
     </head>
     <body id="<?php echo $bodyId; ?>">
         <!--==============================header=================================-->

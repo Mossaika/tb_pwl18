@@ -38,6 +38,24 @@ class SellerDaoImpl {
             $stmt->bindValue(1, $seller->getName(), PDO::PARAM_STR);
             $stmt->bindValue(2, $seller->getAddress(), PDO::PARAM_STR);
             $stmt->bindValue(3, $seller->getApproved(), PDO::PARAM_BOOL);
+            $stmt->bindValue(4, $seller->getId(), PDO::PARAM_INT);
+            $stmt->execute();
+            $link->commit();
+        } catch (PDOException $ex) {
+            $link->rollBack();
+            echo $ex->getMessage();
+            die();
+        }
+        PDOUtil::closePDOConnection($link);
+    }
+
+    public function approveSeller(Seller $seller) {
+        $link = PDOUtil::createPDOConnection();
+        try {
+            $link->beginTransaction();
+            $query = "UPDATE seller SET approved=1 WHERE id=?";
+            $stmt = $link->prepare($query);
+            $stmt->bindValue(1, $seller->getId(), PDO::PARAM_INT);
             $stmt->execute();
             $link->commit();
         } catch (PDOException $ex) {
