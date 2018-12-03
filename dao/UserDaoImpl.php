@@ -67,7 +67,7 @@ class UserDaoImpl {
     function showAllUser() {
         $link = PDOUtil::createPDOConnection();
         try {
-            $query = "SELECT * FROM users";
+            $query = "SELECT u.*, r.id as rid, r.name as rname FROM users u JOIN role r ON u.roles_id = r.id";
             $stmt = $link->prepare($query);
             $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
             $stmt->execute();
@@ -115,20 +115,21 @@ class UserDaoImpl {
             $query = "SELECT * FROM users WHERE id=?";
             $stmt = $link->prepare($query);
             $stmt->bindValue(1, $user->getId(), PDO::PARAM_INT);
-            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
+            $stmt->setFetchMode(PDO::FETCH_OBJ);
             $stmt->execute();
+            $result = $stmt->fetch();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $stmt;
+        return $result;
     }
 
     public function login(Users $user) {
         $link = PDOUtil::createPDOConnection();
 // 3. insert to DB
-        $query = "SELECT u.*, r.id as rid, r.name as rname FROM users u JOIN role r ON u.id = r.id WHERE username=? AND password=?";
+        $query = "SELECT u.*, r.id as rid, r.name as rname FROM users u JOIN role r ON u.roles_id = r.id WHERE username=? AND password=?";
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $user->getUsername(), PDO::PARAM_STR);
         $stmt->bindValue(2, $user->getPassword(), PDO::PARAM_STR);

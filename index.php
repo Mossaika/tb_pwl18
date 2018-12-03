@@ -14,6 +14,7 @@
         <script src="js/FF-cash.js" type="text/javascript"></script>
         <?php
         include_once './controller/ApproveController.php';
+        include_once './controller/UserManagementController.php';
         include_once './controller/LoginController.php';
         include_once './dao/DeliveryDaoImpl.php';
         include_once './dao/DriverDaoImpl.php';
@@ -37,6 +38,7 @@
         if (!isset($_SESSION['approved_user'])) {
             $_SESSION['approved_user'] = FALSE;
             $_SESSION['role'] = 0;
+            $_SESSION['banned'] = 0;
         }
 
         $navigation = filter_input(INPUT_GET, 'n');
@@ -51,6 +53,7 @@
                 $bodyId = '';
                 break;
             case 'logout':
+                $_SESSION['approved_user'] = '';
                 session_unset();
                 session_destroy();
                 header('location:index.php');
@@ -135,6 +138,12 @@
                     function approveSeller(id) {
                         window.location = '?n=approve&c=supdate&id=' + id;
                     }
+                    function banUser(id) {
+                        window.location = '?n=manage_user&c=ban&id=' + id;
+                    }
+                    function unbanUser(id) {
+                        window.location = '?n=manage_user&c=unban&id=' + id;
+                    }
         </script>
     </head>
     <body id="<?php echo $bodyId; ?>">
@@ -152,7 +161,7 @@
                                     <li><a href="?n=approve">Approve</a></li>
                                     <li><a href="?n=manage_user">Manage User</a></li>
                                     <?php
-                                } else {
+                                } else if ($_SESSION['banned'] == 0) {
                                     ?>
                                     <li><a href="?n=home">Home</a></li>
                                     <li><a href="?n=menu">Menu</a></li>
@@ -160,6 +169,10 @@
                                     <li><a href="?n=delivery">Delivery</a></li>
                                     <li><a href="?n=howto">How To</a></li>
                                     <li><a href="?n=contact">Contact</a></li>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li><a style="color:white;">Mohon maaf, anda telah diban</a></li>
                                     <?php
                                 }
                                 ?>
@@ -236,6 +249,8 @@
                     $approveController->approve();
                     break;
                 case 'manage_user':
+                    $userManagementController = new UserManagementController();
+                    $userManagementController->manage();
                     break;
                 case 'login':
                     $loginController = new LoginController();
