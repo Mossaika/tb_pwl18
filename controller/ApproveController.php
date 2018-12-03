@@ -26,7 +26,7 @@ class ApproveController {
     function approve() {
         $users = $this->userDao->showAllUser();
         $drivers = $this->userDao->showAllDriver();
-        $sellerDao = $this->sellerDao->showAllSeller();
+        $sellers = $this->userDao->showAllSeller();
         require_once 'admin_approve.php';
     }
 

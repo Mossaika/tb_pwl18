@@ -267,7 +267,7 @@
         <script type="text/javascript"> Cufon.now();</script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#tableId').DataTable();
+                $('.display').DataTable();
             });
         </script>
         <?php

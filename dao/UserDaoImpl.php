@@ -94,6 +94,21 @@ class UserDaoImpl {
         return $stmt;
     }
 
+    function showAllSeller() {
+        $link = PDOUtil::createPDOConnection();
+        try {
+            $query = "SELECT u.id, u.username, u.email, u.name, s.id as sid, s.approved as sapproved FROM users u JOIN seller s ON u.seller_id = s.id";
+            $stmt = $link->prepare($query);
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
+            $stmt->execute();
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+        PDOUtil::closePDOConnection($link);
+        return $stmt;
+    }
+
     public function getOneUser(Users $user) {
         $link = PDOUtil::createPDOConnection();
         try {

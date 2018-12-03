@@ -90,9 +90,10 @@ class Users {
     }
 
     public function __set($name, $value) {
-        if (!isset($this->roles_id)) {
+        if (!isset($this->roles_id) || !isset($this->driver_id) || !isset($this->seller_id)) {
             $this->roles_id = new Role();
             $this->driver_id = new Driver();
+            $this->seller_id = new Seller();
         }
         if (isset($value)) {
             switch ($name) {
@@ -104,6 +105,10 @@ class Users {
                     $this->driver_id->setId($value);
                 case 'dapproved':
                     $this->driver_id->setApproved($value);
+                case 'sid':
+                    $this->seller_id->setId($value);
+                case 'sapproved':
+                    $this->seller_id->setApproved($value);
                 default:
                     break;
             }
