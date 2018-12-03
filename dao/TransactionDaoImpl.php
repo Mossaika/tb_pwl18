@@ -47,11 +47,12 @@ class TransactionDaoImpl {
         PDOUtil::closePDOConnection($link);
     }
 
-    function showAllTransaction() {
+    function showAllTransactionByUser(Transactions $transaction) {
         $link = PDOUtil::createPDOConnection();
         try {
-            $query = "SELECT * FROM transactions";
+            $query = "SELECT * FROM transactions WHERE user_id=?";
             $stmt = $link->prepare($query);
+            $stmt->bindValue(1, $transaction->getUser_id(), PDO::PARAM_INT);
             $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'transactions');
             $stmt->execute();
         } catch (PDOException $ex) {

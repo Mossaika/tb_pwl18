@@ -153,6 +153,9 @@
                     function unbanUser(id) {
                         window.location = '?n=manage_user&c=unban&id=' + id;
                     }
+                    function transactionDetail(id) {
+                        window.location = '?n=history&c=detail&id=' + id;
+                    }
         </script>
     </head>
     <body id="<?php echo $bodyId; ?>">
@@ -179,6 +182,11 @@
                                     <li><a href="?n=howto">How To</a></li>
                                     <li><a href="?n=contact">Contact</a></li>
                                     <?php
+                                    if ($_SESSION['role'] != 0) {
+                                        ?>
+                                        <li><a href="?n=history">History</a></li>
+                                        <?php
+                                    }
                                 } else {
                                     ?>
                                     <li><a style="color:white;">Mohon maaf, anda telah diban</a></li>
@@ -252,6 +260,10 @@
                 case 'menu':
                     $menuController = new MenuController();
                     $menuController->showMenu();
+                    break;
+                case 'history':
+                    $menuController = new MenuController();
+                    $menuController->showHistory();
                     break;
                 case 'vendor':
                     include_once 'vendor.php';

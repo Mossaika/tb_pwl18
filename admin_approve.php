@@ -32,7 +32,7 @@
                             <td><?php
                                 if ($d->getDriver_id()->getApproved() == 0) {
                                     ?>
-                                    <button value="Approve" onclick="approveDriver(<?php echo $d->getDriver_id()->getId(); ?>)">Approve</button>
+                                    <button onclick="approveDriver(<?php echo $d->getDriver_id()->getId(); ?>)">Approve</button>
                                     <?php
                                 } else {
                                     echo 'Already approved';

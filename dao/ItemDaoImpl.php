@@ -8,7 +8,6 @@
 class ItemDaoImpl {
 
     public function addItem(Item $item) {
-        $msg = 'gagal';
         $link = PDOUtil::createPDOConnection();
 // 3. insert to DB
         try {
@@ -20,14 +19,13 @@ class ItemDaoImpl {
             $stmt->bindValue(3, $item->getSeller_id(), PDO::PARAM_INT);
             $stmt->execute();
             $link->commit();
-            $msg = 'sukses';
         } catch (PDOException $er) {
             $link->rollBack();
             echo $er->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $msg;
+        return $stmt;
     }
 
     public function updateItem(Item $item) {

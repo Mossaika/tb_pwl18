@@ -35,4 +35,18 @@ class TransactionDetail {
         $this->quantity = $quantity;
     }
 
+    public function __set($name, $value) {
+        if (!isset($this->item_id)) {
+            $this->item_id = new Item();
+        }
+        if (isset($value)) {
+            switch ($name) {
+                case 'name':
+                    $this->item_id->setName($value);
+                default:
+                    break;
+            }
+        }
+    }
+
 }
