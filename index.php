@@ -61,6 +61,9 @@
             case 'login':
                 $bodyId = '';
                 break;
+            case 'history':
+                $bodyId = '';
+                break;
             case 'logout':
                 $_SESSION['approved_user'] = '';
                 session_unset();

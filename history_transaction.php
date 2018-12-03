@@ -45,7 +45,7 @@
                     foreach ($details as $d) {
                         ?>
                         <tr>
-                            <td><?php echo $d->getItem_id()->getName(); ?></td>
+                            <td><?php echo $d->getItem_id() . ' - ' . $d->getItem_id()->getName(); ?></td>
                             <td><?php echo $d->getQuantity(); ?></td>
                         </tr>
                         <?php

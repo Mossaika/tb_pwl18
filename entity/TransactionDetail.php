@@ -41,6 +41,8 @@ class TransactionDetail {
         }
         if (isset($value)) {
             switch ($name) {
+                case 'id':
+                    $this->item_id->setId($value);
                 case 'name':
                     $this->item_id->setName($value);
                 default:

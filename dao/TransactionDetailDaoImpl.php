@@ -33,7 +33,7 @@ class TransactionDetailDaoImpl {
         try {
             $query = "SELECT * FROM transaction_detail";
             $stmt = $link->prepare($query);
-            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'transaction_detail');
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'TransactionDetail');
             $stmt->execute();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
@@ -46,10 +46,10 @@ class TransactionDetailDaoImpl {
     public function getDetailOfTransactionId(TransactionDetail $detail) {
         $link = PDOUtil::createPDOConnection();
         try {
-            $query = "SELECT td.*, i.name FROM transaction_detail td JOIN item i ON td.item_id = i.id WHERE transaction_id=?";
+            $query = "SELECT td.*, i.id, i.name FROM transaction_detail td JOIN item i ON td.item_id = i.id WHERE td.transaction_id=?";
             $stmt = $link->prepare($query);
             $stmt->bindValue(1, $detail->getTransaction_id(), PDO::PARAM_INT);
-            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'transaction_detail');
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'TransactionDetail');
             $stmt->execute();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
