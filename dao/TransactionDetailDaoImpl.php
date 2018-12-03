@@ -8,7 +8,6 @@
 class TransactionDetailDaoImpl {
 
     public function addTransactionDetail(TransactionDetail $detail) {
-        $msg = 'gagal';
         $link = PDOUtil::createPDOConnection();
 // 3. insert to DB
         try {
@@ -20,14 +19,13 @@ class TransactionDetailDaoImpl {
             $stmt->bindValue(3, $detail->getQuantity(), PDO::PARAM_INT);
             $stmt->execute();
             $link->commit();
-            $msg = 'sukses';
         } catch (PDOException $er) {
             $link->rollBack();
             echo $er->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $msg;
+        return $stmt;
     }
 
     function showAllTransactionDetail() {

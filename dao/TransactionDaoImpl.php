@@ -8,26 +8,24 @@
 class TransactionDaoImpl {
 
     public function addTransaction(Transactions $transaction) {
-        $msg = 'gagal';
         $link = PDOUtil::createPDOConnection();
 // 3. insert to DB
         try {
             $link->beginTransaction();
-            $query = "INSERT INTO transactions (distance_fee, order_date, user_id) VALUES(?, ?, ?)";
+            $query = "INSERT INTO transactions (distance_fee, user_id) VALUES(?, ?)";
             $stmt = $link->prepare($query);
             $stmt->bindValue(1, $transaction->getDistance_fee(), PDO::PARAM_INT);
-            $stmt->bindValue(2, $transaction->getOrder_date(), PDO::PARAM_STR);
-            $stmt->bindValue(5, $transaction->getUser_id(), PDO::PARAM_INT);
+            $stmt->bindValue(2, $transaction->getUser_id(), PDO::PARAM_INT);
             $stmt->execute();
+            $lastId = $link->lastInsertId();
             $link->commit();
-            $msg = 'sukses';
         } catch (PDOException $er) {
             $link->rollBack();
             echo $er->getMessage();
             die();
         }
         PDOUtil::closePDOConnection($link);
-        return $msg;
+        return $lastId;
     }
 
     public function updateTransaction(Transactions $transaction) {

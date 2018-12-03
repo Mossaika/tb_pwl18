@@ -5,9 +5,6 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
-        <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="css/datatables.css">
-        <script type="text/javascript" src="js/datatables.js"></script>
         <script src="js/cufon-yui.js" type="text/javascript"></script>
         <script src="js/cufon-replace.js" type="text/javascript"></script> 
         <script src="js/Dynalight_400.font.js" type="text/javascript"></script>
@@ -16,6 +13,7 @@
         include_once './controller/ApproveController.php';
         include_once './controller/UserManagementController.php';
         include_once './controller/LoginController.php';
+        include_once './controller/MenuController.php';
         include_once './dao/DeliveryDaoImpl.php';
         include_once './dao/DriverDaoImpl.php';
         include_once './dao/ItemDaoImpl.php';
@@ -42,6 +40,17 @@
         }
 
         $navigation = filter_input(INPUT_GET, 'n');
+        if (!isset($navigation) || $navigation == 'home') {
+            ?>
+            <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+            <?php
+        } else {
+            ?>
+            <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
+            <link rel="stylesheet" type="text/css" href="css/datatables.css">
+            <script type="text/javascript" src="js/datatables.js"></script>
+            <?php
+        }
         switch ($navigation) {
             case 'approve':
                 $bodyId = '';
@@ -76,7 +85,7 @@
                 </script>
                 <?php
                 break;
-            case 'catalogue':
+            case 'vendor':
                 $bodyId = 'page3';
                 ?>
                 <title>Catalogue</title>
@@ -155,6 +164,7 @@
                         <h1><a href="index.php">Catering<span>.com</span></a></h1>
                         <nav>
                             <ul class="menu">
+                                <li><a href="?n=home">Home</a></li>
                                 <?php
                                 if ($_SESSION['role'] == '1') {
                                     ?>
@@ -163,9 +173,8 @@
                                     <?php
                                 } else if ($_SESSION['banned'] == 0) {
                                     ?>
-                                    <li><a href="?n=home">Home</a></li>
                                     <li><a href="?n=menu">Menu</a></li>
-                                    <li><a href="?n=catalogue">Catalogue</a></li>
+                                    <li><a href="?n=vendor">Vendor</a></li>
                                     <li><a href="?n=delivery">Delivery</a></li>
                                     <li><a href="?n=howto">How To</a></li>
                                     <li><a href="?n=contact">Contact</a></li>
@@ -197,42 +206,26 @@
                     <div class="main">
                         <h2>Impressive Selection <span>for any Occasion</span></h2>
                         <?php
-                        switch ($navigation) {
-                            case 'approve':
-                                break;
-                            case 'manage_user':
-                                break;
-                            case 'login':
-                                break;
-                            case 'menu':
-                                break;
-                            case 'catalogue':
-                                break;
-                            case 'delivery':
-                                break;
-                            case 'howto':
-                                break;
-                            case 'contact':
-                                break;
-                            default:
-                                ?>
-                                <div class="slider-wrapper">
-                                    <div class="slider">
-                                        <ul class="items">
-                                            <li>
-                                                <img src="images/slider-img1.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="images/slider-img2.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="images/slider-img3.jpg" alt="" />
-                                            </li>
-                                        </ul>
-                                    </div>
+                        if (!isset($navigation) || $navigation == 'home') {
+                            ?>
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <ul class="items">
+                                        <li>
+                                            <img src="images/slider-img1.jpg" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="images/slider-img2.jpg" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="images/slider-img3.jpg" alt="" />
+                                        </li>
+                                    </ul>
                                 </div>
-                                <?php
-                                break;
+                            </div>
+                            <?php
+                        } else {
+                            
                         }
                         ?>
                     </div>
@@ -257,10 +250,11 @@
                     $loginController->login();
                     break;
                 case 'menu':
-                    include_once 'menu.php';
+                    $menuController = new MenuController();
+                    $menuController->showMenu();
                     break;
-                case 'catalogue':
-                    include_once 'catalogue.php';
+                case 'vendor':
+                    include_once 'vendor.php';
                     break;
                 case 'delivery':
                     include_once 'delivery.php';
@@ -294,41 +288,25 @@
             });
         </script>
         <?php
-        switch ($navigation) {
-            case 'approve':
-                break;
-            case 'manage_user':
-                break;
-            case 'login':
-                break;
-            case 'menu':
-                break;
-            case 'catalogue':
-                break;
-            case 'delivery':
-                break;
-            case 'howto':
-                break;
-            case 'contact':
-                break;
-            default:
-                ?>
-                <script type="text/javascript">
-                    $(window).load(function () {
-                        $('.slider')._TMS({
-                            duration: 1000,
-                            easing: 'easeOutQuint',
-                            preset: 'slideDown',
-                            slideshow: 7000,
-                            banners: false,
-                            pauseOnHover: true,
-                            pagination: true,
-                            pagNums: false
-                        });
+        if (!isset($navigation) || $navigation == 'home') {
+            ?>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $('.slider')._TMS({
+                        duration: 1000,
+                        easing: 'easeOutQuint',
+                        preset: 'slideDown',
+                        slideshow: 7000,
+                        banners: false,
+                        pauseOnHover: true,
+                        pagination: true,
+                        pagNums: false
                     });
-                </script>
-                <?php
-                break;
+                });
+            </script>
+            <?php
+        } else {
+            
         }
         ?>
     </body>

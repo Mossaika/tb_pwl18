@@ -49,10 +49,30 @@ class ItemDaoImpl {
         PDOUtil::closePDOConnection($link);
     }
 
+    public function deleteItem(Item $item) {
+        $link = PDOUtil::createPDOConnection();
+        try {
+            $link->beginTransaction();
+            $query = "DELETE FROM item WHERE id=?";
+            $stmt = $link->prepare($query);
+            $stmt->bindValue(1, $item->getId(), PDO::PARAM_STR);
+            $result = $stmt->execute();
+            if ($result != FALSE) {
+                $link->commit();
+            }
+        } catch (PDOException $ex) {
+            $link->rollBack();
+            echo $ex->getMessage();
+            die();
+        }
+        PDOUtil::closePDOConnection($link);
+        return $result;
+    }
+
     function showAllItem() {
         $link = PDOUtil::createPDOConnection();
         try {
-            $query = "SELECT * FROM item";
+            $query = "SELECT * FROM item ORDER BY name ASC";
             $stmt = $link->prepare($query);
             $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'item');
             $stmt->execute();
